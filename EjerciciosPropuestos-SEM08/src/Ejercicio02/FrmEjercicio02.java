@@ -4,15 +4,16 @@
  */
 package Ejercicio02;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author USER
  */
 public class FrmEjercicio02 extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FrmEjercicio02
-     */
+    Palindrome palindrome = new Palindrome();
+    
     public FrmEjercicio02() {
         initComponents();
     }
@@ -37,10 +38,16 @@ public class FrmEjercicio02 extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         txtPalabra.setBorder(javax.swing.BorderFactory.createTitledBorder("Ingrese Palabra:"));
+        txtPalabra.setDisabledTextColor(new java.awt.Color(0, 0, 0));
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
         btnResultado.setText("RESULTADO");
+        btnResultado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResultadoActionPerformed(evt);
+            }
+        });
 
         btnLimpiar.setText("LIMPIAR");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -81,6 +88,7 @@ public class FrmEjercicio02 extends javax.swing.JFrame {
         );
 
         txtResultado.setBorder(javax.swing.BorderFactory.createTitledBorder("Resultado:"));
+        txtResultado.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txtResultado.setEnabled(false);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Emoji", 1, 18)); // NOI18N
@@ -131,6 +139,19 @@ public class FrmEjercicio02 extends javax.swing.JFrame {
         txtResultado.setText("");
         txtPalabra.requestFocus();
     }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void btnResultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResultadoActionPerformed
+        String expresion;
+        if(txtPalabra.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingrese una Palabra","ADVERTENCIA",0);
+            return;
+        }
+        expresion = txtPalabra.getText().trim();
+        if(palindrome.esPalindrome(expresion))
+            txtResultado.setText(expresion + " es Palindrome");
+        else
+            txtResultado.setText(expresion + " NO es Palindrome");
+    }//GEN-LAST:event_btnResultadoActionPerformed
 
     /**
      * @param args the command line arguments

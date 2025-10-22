@@ -145,7 +145,7 @@ public class FrmEjercicio01 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Porfavor Ingrese la Expresion a Evaluar","ADVERTENCIA",0);
             return;
         }
-        expresion = txtExpresion.getText();
+        expresion = txtExpresion.getText().trim();
         if(parentesis.parametrosBalanceados(expresion))
             txtResultado.setText("Los paréntesis están balanceados");
         else
