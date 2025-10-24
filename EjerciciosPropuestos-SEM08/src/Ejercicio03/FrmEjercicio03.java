@@ -4,15 +4,14 @@
  */
 package Ejercicio03;
 
-/**
- *
- * @author USER
- */
+import javax.swing.JOptionPane;
+
+
+        
 public class FrmEjercicio03 extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FrmEjercicio03
-     */
+    ConvertidorBase cb = new ConvertidorBase();
+    
     public FrmEjercicio03() {
         initComponents();
     }
@@ -42,10 +41,16 @@ public class FrmEjercicio03 extends javax.swing.JFrame {
         jLabel1.setText("Conversor de Base");
 
         txtNumero.setBorder(javax.swing.BorderFactory.createTitledBorder("Ingresa Número:"));
+        txtNumero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNumeroActionPerformed(evt);
+            }
+        });
 
         cmbBase.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Selecciona--", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16" }));
         cmbBase.setBorder(javax.swing.BorderFactory.createTitledBorder("Ingresa Base:"));
 
+        txtResultado.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txtResultado.setEnabled(false);
 
         jLabel2.setText("Resultado :");
@@ -53,6 +58,11 @@ public class FrmEjercicio03 extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
         btnResultado.setText("CALCULAR");
+        btnResultado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResultadoActionPerformed(evt);
+            }
+        });
 
         btnLimpiar.setText("LIMPIAR");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -149,6 +159,26 @@ public class FrmEjercicio03 extends javax.swing.JFrame {
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void txtNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroActionPerformed
+
+    }//GEN-LAST:event_txtNumeroActionPerformed
+
+    private void btnResultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResultadoActionPerformed
+        if(txtNumero.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingrese un  numero entero","INFORMACION",1);
+            return;
+        }
+        if(cmbBase.getSelectedIndex()==0){
+           JOptionPane.showMessageDialog(null, "Ingrese una base","INFORMACION",1);
+            return; 
+        }
+        int entero = Integer.parseInt(txtNumero.getText());
+        int base = Integer.parseInt(cmbBase.getSelectedItem().toString());
+        String resultado = cb.convertidor(base, entero);
+        txtResultado.setText(resultado);
+        
+    }//GEN-LAST:event_btnResultadoActionPerformed
 
     /**
      * @param args the command line arguments
