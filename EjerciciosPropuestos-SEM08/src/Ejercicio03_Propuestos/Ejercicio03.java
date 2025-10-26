@@ -1,5 +1,5 @@
 
-package Ejercicio03;
+package Ejercicio03_Propuestos;
 
 public class Ejercicio03 {
     public static void main(String[] args) {

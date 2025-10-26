@@ -2,17 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Ejercicio01;
+package InfijaPosfija_Propuestos;
 
 import javax.swing.JOptionPane;
 
+/**
+ *
+ * @author USER
+ */
+public class FrmInfija_Posfija extends javax.swing.JFrame {
 
-        
-public class FrmEjercicio01 extends javax.swing.JFrame {
-
-    Parentesis parentesis = new Parentesis();
-    
-    public FrmEjercicio01() {
+    EvaluadorAvanzado ea = new EvaluadorAvanzado();
+    public FrmInfija_Posfija() {
         initComponents();
     }
 
@@ -25,17 +26,25 @@ public class FrmEjercicio01 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSeparator1 = new javax.swing.JSeparator();
+        txtExpresion = new javax.swing.JTextField();
+        txtResultado = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         btnResultado = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
-        txtExpresion = new javax.swing.JTextField();
-        txtResultado = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        txtPosfija = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Parentesis Balanceados");
+
+        txtExpresion.setBorder(javax.swing.BorderFactory.createTitledBorder("EXPRESIÓN ARITMETICA"));
+
+        txtResultado.setBorder(javax.swing.BorderFactory.createTitledBorder("RESULTADO"));
+        txtResultado.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txtResultado.setEnabled(false);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI Emoji", 1, 18)); // NOI18N
+        jLabel1.setText("INFIJA A POSFIJA Y RESULTADO");
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -84,44 +93,39 @@ public class FrmEjercicio01 extends javax.swing.JFrame {
                 .addGap(18, 18, 18))
         );
 
-        txtExpresion.setBorder(javax.swing.BorderFactory.createTitledBorder("EXPRESIÓN"));
-
-        txtResultado.setBorder(javax.swing.BorderFactory.createTitledBorder("RESULTADO"));
-        txtResultado.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        txtResultado.setEnabled(false);
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI Emoji", 1, 18)); // NOI18N
-        jLabel1.setText("PARÉNTESIS BALANCEADOS");
+        txtPosfija.setBorder(javax.swing.BorderFactory.createTitledBorder("POSFIJA:"));
+        txtPosfija.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txtPosfija.setEnabled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(79, 79, 79)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtExpresion, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(62, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(73, 73, 73))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(45, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(76, 76, 76)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtPosfija, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtExpresion, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
+                .addGap(21, 21, 21)
                 .addComponent(jLabel1)
-                .addGap(36, 36, 36)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtExpresion, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addComponent(txtPosfija, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
                 .addComponent(txtResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
+                .addGap(34, 34, 34)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27))
         );
@@ -129,34 +133,31 @@ public class FrmEjercicio01 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_btnSalirActionPerformed
+    private void btnResultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResultadoActionPerformed
+
+        if(txtExpresion.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingrese una expresion aritmetica","INFORMACION",1);
+            return;
+        }
+        String expresion = txtExpresion.getText().trim();
+        String posfija = ea.convertirAPostfija(expresion);
+        txtPosfija.setText(posfija);
+        Double resultado = ea.evaluarPostfija(posfija);
+        txtResultado.setText(String.valueOf(resultado));
+    }//GEN-LAST:event_btnResultadoActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
         txtExpresion.setText("");
+        txtPosfija.setText("");
         txtResultado.setText("");
         txtExpresion.requestFocus();
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
-    private void btnResultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResultadoActionPerformed
-        String expresion;
-        if(txtExpresion.getText().trim().isEmpty()){
-            JOptionPane.showMessageDialog(null,"Porfavor Ingrese la Expresion a Evaluar","ADVERTENCIA",0);
-            return;
-        }
-        expresion = txtExpresion.getText().trim();
-        if(parentesis.parametrosBalanceados(expresion))
-            txtResultado.setText("Los paréntesis están balanceados");
-        else
-            txtResultado.setText("Los paréntesis NO están balanceados");
-        
-    }//GEN-LAST:event_btnResultadoActionPerformed
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnSalirActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLimpiar;
@@ -164,8 +165,8 @@ public class FrmEjercicio01 extends javax.swing.JFrame {
     private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField txtExpresion;
+    private javax.swing.JTextField txtPosfija;
     private javax.swing.JTextField txtResultado;
     // End of variables declaration//GEN-END:variables
 }
